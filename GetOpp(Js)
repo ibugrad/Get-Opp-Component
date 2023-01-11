@@ -1,13 +1,25 @@
 import { LightningElement,track } from 'lwc';
-import getOpp from '@salesforce/apex/GetOppLwc.getOppRecords'
-export default class GetOppImp extends LightningElement {
+import getOpp from '@salesforce/apex/GetOppLwc.getOppRecords';
+import Id from '@salesforce/user/Id';
+export default class GetOpportunityImp extends LightningElement {
+    @track columns = [{
+        label: 'Opportunity name',fieldName: 'Name', type: 'text',  },
+    {
+        label: 'Amount',fieldName: 'Amount', type: 'currency', },
+    {
+        label: 'Closed Date', fieldName: 'CloseDate', type: 'date', },
+    {
+        label: 'Stagename',fieldName: 'StageName', type: 'text', },
    
-    @track opps;
-    @track error;
+];
+userId=Id;
 
+    @track error;
+    @track opps;
     GetOppRecords(){
 
-        getOpp().then(result=> {this.opps=result})
-        .catch(error=> {this.error=error})
+        getOpp({ownid:this.userId}).then( result =>{this.opps = result} ) 
+        .catch(error => {this.error = error})
     }
+
 }
