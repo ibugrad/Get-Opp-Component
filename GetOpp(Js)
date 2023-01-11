@@ -1,5 +1,5 @@
 import { LightningElement,track } from 'lwc';
-import getOpp from '@salesforce/apex/GetOpp.getOppRecords'
+import getOpp from '@salesforce/apex/GetOppLwc.getOppRecords'
 export default class GetOppImp extends LightningElement {
    
     @track opps;
