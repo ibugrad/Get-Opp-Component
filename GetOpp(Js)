@@ -1,5 +1,5 @@
 import { LightningElement,track } from 'lwc';
-import getOpp from '@salesforce/apex/GetOppLwc.getOppRecords';
+import getOpp from '@salesforce/apex/GetOppLwc.getOppRecords1';
 import Id from '@salesforce/user/Id';
 export default class GetOpportunityImp extends LightningElement {
     @track columns = [{
@@ -18,7 +18,7 @@ userId=Id;
     @track opps;
     GetOppRecords(){
 
-        getOpp({ownid:this.userId}).then( result =>{this.opps = result} ) 
+        getOpp({ownId:this.userId}).then( result =>{this.opps = result} ) 
         .catch(error => {this.error = error})
     }
 
