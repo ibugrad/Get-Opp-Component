@@ -1,7 +1,7 @@
 public class GetOppLwc {
 
     @AuraEnabled(cacheable=true)
-    public static list<opportunity> getOppRecords(string ownId){
+    public static list<opportunity> getOppRecords1(string ownId){
         
         return [SELECT Id, Name, Stagename, Closedate, Amount WHERE Opportunity WHERE Id=: ownId];
         
