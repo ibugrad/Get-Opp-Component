@@ -1,0 +1,13 @@
+import { LightningElement,track } from 'lwc';
+import getOpp from '@salesforce/apex/GetOpp.getOppRecords'
+export default class GetOppImp extends LightningElement {
+   
+    @track opps;
+    @track error;
+
+    GetOppRecords(){
+
+        getOpp().then(result=> {this.opps=result})
+        .catch(error=> {this.error=error})
+    }
+}
