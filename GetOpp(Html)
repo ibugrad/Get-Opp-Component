@@ -1,17 +1,16 @@
 <template>
-  <lightning-card>
 
-    <template if:true={opps}>
-        <template for:each={opps} for:item="opp">
-            <div key={opp.Id}>{opp.Name}-{opp.StageName}-{opp.Amount}</div>
-
-        </template>
-    </template>
-
-
-    <lightning-button label="Get Opp Records" onclick={GetOppRecords}>
-
+    <lightning-button
+      label="Get Opp Records"
+      onclick={GetOppRecords}>
     </lightning-button>
-
-  </lightning-card>
+    
+    <template if:true={opps}>
+        <div style="height: 500px;">
+            <lightning-datatable key-field="id" data={opps} show-row-number-column columns={columns}>
+                   
+            </lightning-datatable>
+        </div>
+    </template>
+    
 </template>
