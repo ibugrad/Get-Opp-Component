@@ -1,4 +1,4 @@
-a<template>
+<template>
   <lightning-card>
 
     <template if:true={opps}>
