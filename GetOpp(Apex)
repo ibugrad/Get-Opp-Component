@@ -1,4 +1,4 @@
-public class GetOppLwc {
+apublic class GetOppLwc {
 
     @AuraEnabled(cacheable=true)
     public static list<opportunity> getOppRecords(){
